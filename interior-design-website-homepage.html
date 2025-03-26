@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Crafted | Luxury Interior Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0A3127;
+            --secondary-color: #F0EBE1;
+            --accent-color: #D4AF37;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 40px;
+            --spacing-xl: 64px;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--border-radius);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            padding: var(--spacing-sm) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: var(--spacing-xs);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: var(--spacing-xl) 0 var(--spacing-xl);
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+        }
+        
+        .hero-image {
+            margin-top: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .testimonial-card {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius);
+            max-width: 300px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .testimonial-card-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: var(--spacing-xs);
+        }
+        
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-text {
+            color: var(--text-dark);
+            font-size: 0.85rem;
+        }
+        
+        /* Features */
+        .features {
+            padding: var(--spacing-lg) 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            font-size: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary-color);
+        }
+        
+        .feature-text {
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        /* Why Choose Us */
+        .why-us {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--secondary-color);
+            text-align: center;
+        }
+        
+        .section-header {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .section-subtitle {
+            font-size: 1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .why-us-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .why-us-image {
+            height: 250px;
+        }
+        
+        .why-us-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .why-us-content {
+            padding: var(--spacing-md);
+            text-align: left;
+        }
+        
+        .why-us-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary-color);
+        }
+        
+        .why-us-text {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Solutions Section */
+        .solutions {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+        
+        .solutions .section-title,
+        .solutions .section-subtitle {
+            color: var(--text-light);
+        }
+        
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .solution-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+        
+        .solution-content {
+            padding: var(--spacing-md);
+        }
+        
+        .solution-title {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .solution-text {
+            opacity: 0.9;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* Gallery */
+        .gallery {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--secondary-color);
+            text-align: center;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            aspect-ratio: 1;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(10, 49, 39, 0.8);
+            color: var(--text-light);
+            padding: var(--spacing-xs);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-item-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-cta {
+            margin-top: var(--spacing-lg);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .testimonials-content {
+            padding-right: var(--spacing-lg);
+        }
+        
+        .testimonials-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+        
+        .testimonial-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+        
+        .testimonial-item-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .testimonial-item-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: var(--spacing-sm);
+        }
+        
+        .testimonial-item-name {
+            font-weight: 600;
+        }
+        
+        .testimonial-item-role {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .testimonial-rating {
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-item-text {
+            font-style: italic;
+            line-height: 1.7;
+        }
+        
+        .testimonial-quote {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+        
+        /* Blog */
+        .blog {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--secondary-color);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .blog-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .blog-image {
+            height: 200px;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: var(--spacing-md);
+        }
+        
+        .blog-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary-color);
+        }
+        
+        .blog-text {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .blog-link {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .blog-link i {
+            margin-left: var(--spacing-xs);
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        .blog-cta {
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 2.2rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .cta-text {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: var(--spacing-lg) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+        
+        .footer-logo {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo i {
+            margin-right: var(--spacing-xs);
+        }
+        
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        .footer-heading {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+        
+        .footer-contact {
+            font-size: 0.9rem;
+        }
+        
+        .footer-contact div {
+            margin-bottom: var(--spacing-xs);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-contact i {
+            margin-right: var(--spacing-xs);
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features,
+            .why-us-grid,
+            .gallery-grid,
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .solution-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                row-gap: var(--spacing-xl);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .why-us-grid,
+            .testimonials-grid,
+            .testimonials-cards,
+            .gallery-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                width: 95%;
+            }
+            
+            nav ul {
+                gap: var(--spacing-sm);
+            }
+            
+            nav a {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-home"></i> InteriorCrafted
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Crafted with Precision, Designed with Love</h1>
+                <p>Transform your living spaces into works of art with our premium interior design solutions</p>
+                <a href="#" class="btn btn-accent">Explore Our Work</a>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Modern kitchen interior">
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-card-header">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Client">
+                        <div>
+                            <div class="testimonial-name">Sarah Johnson</div>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"The attention to detail and craftsmanship exceeded our expectations. Our home is now a showcase!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonials-grid">
+                <div class="testimonials-content">
+                    <div class="section-header" style="text-align: left;">
+                        <h2 class="section-title">Testimonials</h2>
+                        <p class="section-subtitle">What our clients say about our services</p>
+                    </div>
+                    <a href="#" class="btn btn-accent btn-circle" style="margin-top: 20px;">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="testimonials-cards">
+                    <div class="testimonial-item">
+                        <div class="testimonial-item-header">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Client">
+                            <div>
+                                <div class="testimonial-item-name">David Ramirez</div>
+                                <div class="testimonial-item-role">Homeowner</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-item-text">"The team transformed our outdated kitchen into a masterpiece. Their attention to detail and commitment to quality is unmatched."</p>
+                        <i class="fas fa-quote-right testimonial-quote"></i>
+                    </div>
+                    
+                    <div class="testimonial-item">
+                        <div class="testimonial-item-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Client">
+                            <div>
+                                <div class="testimonial-item-name">Emily Chen</div>
+                                <div class="testimonial-item-role">Apartment Owner</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-item-text">"Working with InteriorCrafted was a joy from start to finish. They listened to our ideas and delivered beyond our expectations."</p>
+                        <i class="fas fa-quote-right testimonial-quote"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recent Articles</h2>
+                <p class="section-subtitle">Tips, trends, and inspiration for your next project</p>
+            </div>
+            
+            <div class="blog-grid">
+                <div class="blog-item">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1565183928294-7063f23ce0f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Kitchen Design Trends">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Kitchen Design Trends for 2025</h3>
+                        <p class="blog-text">Explore the latest innovations and styles transforming modern kitchens this year.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-item">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Small Spaces">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Maximizing Small Spaces</h3>
+                        <p class="blog-text">Clever design solutions to make the most of compact living areas without sacrificing style.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-item">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Sustainable Materials">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Eco-Friendly Interior Choices</h3>
+                        <p class="blog-text">Sustainable materials and practices that reduce environmental impact without compromising beauty.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-cta">
+                <a href="#" class="btn btn-primary">View All Articles</a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Features -->
+    <section class="container features">
+        <div class="feature-item">
+            <div class="feature-icon">
+                <i class="fas fa-drafting-compass"></i>
+            </div>
+            <h3 class="feature-title">Customized by You</h3>
+            <p class="feature-text">We bring your vision to life with personalized designs that reflect your unique style and preferences.</p>
+        </div>
+        
+        <div class="feature-item">
+            <div class="feature-icon">
+                <i class="fas fa-tools"></i>
+            </div>
+            <h3 class="feature-title">Smart Tech Features</h3>
+            <p class="feature-text">Integrate cutting-edge technology seamlessly into your living spaces for enhanced comfort and convenience.</p>
+        </div>
+        
+        <div class="feature-item">
+            <div class="feature-icon">
+                <i class="fas fa-medal"></i>
+            </div>
+            <h3 class="feature-title">Design Award</h3>
+            <p class="feature-text">Award-winning designs recognized for innovation, sustainability, and exceptional aesthetic quality.</p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Us</h2>
+                <p class="section-subtitle">Our dedication to excellence sets us apart</p>
+            </div>
+            
+            <div class="why-us-grid">
+                <div class="why-us-item">
+                    <div class="why-us-image">
+                        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Craftsmanship">
+                    </div>
+                    <div class="why-us-content">
+                        <h3 class="why-us-title">Quality Craftsmanship</h3>
+                        <p class="why-us-text">Our skilled artisans bring decades of experience to every project, ensuring flawless execution and enduring quality that stands the test of time.</p>
+                    </div>
+                </div>
+                
+                <div class="why-us-item">
+                    <div class="why-us-image">
+                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Best of Both Worlds">
+                    </div>
+                    <div class="why-us-content">
+                        <h3 class="why-us-title">Best of Both Worlds</h3>
+                        <p class="why-us-text">We seamlessly blend timeless elegance with contemporary innovation, creating spaces that honor traditional craftsmanship while embracing modern functionality.</p>
+                    </div>
+                </div>
+                
+                <div class="why-us-item">
+                    <div class="why-us-image">
+                        <img src="https://images.unsplash.com/photo-1589834390005-5d4fb9bf3d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Satisfied Clients">
+                    </div>
+                    <div class="why-us-content">
+                        <h3 class="why-us-title">Trusted by over 500+ clients</h3>
+                        <p class="why-us-text">Our extensive portfolio of satisfied clients spans residential homeowners, commercial businesses, and hospitality venues across the country.</p>
+                    </div>
+                </div>
+                
+                <div class="why-us-item">
+                    <div class="why-us-image">
+                        <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Innovative Design">
+                    </div>
+                    <div class="why-us-content">
+                        <h3 class="why-us-title">Innovative Design Approach</h3>
+                        <p class="why-us-text">We stay at the forefront of design trends while creating timeless spaces that won't feel dated in a few years.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="solutions">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Solutions</h2>
+                <p class="section-subtitle">Comprehensive interior solutions for every space</p>
+            </div>
+            
+            <div class="solutions-grid">
+                <div class="solution-item">
+                    <div class="solution-content">
+                        <h3 class="solution-title">Kitchens</h3>
+                        <p class="solution-text">Modern, functional kitchen designs that combine beauty with practicality. We create cooking spaces that inspire culinary creativity while providing optimal workflow and storage solutions.</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Modern Kitchen">
+                    </div>
+                </div>
+                
+                <div class="solution-item">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1616627561839-074385245ff6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Luxury Wardrobe">
+                    </div>
+                    <div class="solution-content">
+                        <h3 class="solution-title">Wardrobes</h3>
+                        <p class="solution-text">Custom-built wardrobes designed to maximize storage while complementing your bedroom aesthetic. Our solutions transform cluttered spaces into organized, accessible storage systems.</p>
+                    </div>
+                </div>
+                
+                <div class="solution-item">
+                    <div class="solution-content">
+                        <h3 class="solution-title">Cabinetry</h3>
+                        <p class="solution-text">Bespoke cabinetry crafted with precision and designed for longevity. From entertainment centers to bathroom vanities, our custom cabinets blend form and function seamlessly.</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1631048500395-1c64661fa93a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Custom Cabinetry">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Discover Our Amazing Creations</h2>
+                <p class="section-subtitle">Browse through our portfolio of completed projects</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Modern Living Room">
+                    <div class="gallery-item-overlay">
+                        <h4>Modern Living</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Minimalist Bedroom">
+                    <div class="gallery-item-overlay">
+                        <h4>Minimalist Style</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Luxury Bathroom">
+                    <div class="gallery-item-overlay">
+                        <h4>Tranquil Spa</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1595514535310-e4e66107c31d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Contemporary Office">
+                    <div class="gallery-item-overlay">
+                        <h4>Workspace Chic</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-cta">
+                <a href="#" class="btn btn-primary">View All Projects</a>
+            </div>
+        </div>
+    </section>
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Wondering what your dream home looks like?</h2>
+            <p class="cta-text">Schedule a free consultation with our design experts to bring your vision to life.</p>
+            <a href="#" class="btn btn-accent">Get in Touch <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <i class="fas fa-home"></i> InteriorCrafted
+                    </div>
+                    <p class="footer-text">Creating beautiful, functional spaces that inspire and elevate everyday living since 2010.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-houzz"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Interior Design</a></li>
+                        <li><a href="#">Custom Furniture</a></li>
+                        <li><a href="#">Kitchen & Bath</a></li>
+                        <li><a href="#">Space Planning</a></li>
+                        <li><a href="#">Renovation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Design Street, Creative City, ST 12345</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@interiorcrafted.com</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 9AM-6PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 InteriorCrafted. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add animation classes when elements come into view
+            const observerOptions = {
+                threshold: 0.2
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Apply to sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VM Modular - The Home Style Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0A3127;
+            --secondary-color: #f7f3eb;
+            --accent-color: #eac56b;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 40px;
+            --spacing-xl: 64px;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+        }
+        
+        .btn-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            padding: var(--spacing-sm) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--spacing-xl) 0 var(--spacing-xl);
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -150px;
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 100px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .breadcrumb a {
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+        
+        .breadcrumb i {
+            margin-right: 5px;
+        }
+        
+        .breadcrumb span {
+            margin: 0 8px;
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: var(--spacing-lg) 0;
+            background-color: var(--secondary-color);
+        }
+
+        .categories-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .categories-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .view-all:hover {
+            opacity: 0.8;
+        }
+
+        .categories-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .filter-btn {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-color: var(--primary-color);
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: var(--spacing-md);
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-dark);
+        }
+
+        .blog-tag {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-top: var(--spacing-sm);
+        }
+
+        .load-more {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .load-more-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            padding: 12px 24px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .load-more-btn:hover {
+            background-color: #efe9db;
+        }
+
+        .load-more-btn .btn-circle {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Instagram Section */
+        .instagram {
+            padding: var(--spacing-xl) 0;
+            background-color: white;
+        }
+
+        .instagram-header {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .instagram-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+        }
+
+        .instagram-item {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .instagram-item:first-child {
+            grid-row: span 2;
+            height: 100%;
+        }
+
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .instagram-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .instagram-follow {
+            margin-top: var(--spacing-md);
+            text-align: center;
+        }
+
+        .instagram-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: white;
+            border-radius: 50%;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .instagram-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2.2rem;
+            margin-bottom: var(--spacing-md);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter p {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.8;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px 0 0 8px;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px 25px;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #d9b75f;
+        }
+
+        /* Dream Home Section */
+        .dream-home {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .dream-home-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dream-home-title {
+            font-size: 2rem;
+            max-width: 500px;
+            line-height: 1.3;
+        }
+
+        .cta-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button .btn-circle {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .footer-links-columns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+        }
+        
+        .footer-column h4 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .contact-info {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .contact-info div {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: var(--spacing-md);
+        }
+        
+        .social-links a {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .privacy-policy {
+            text-decoration: none;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .blog-grid,
+            .instagram-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-xl);
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .dream-home-container {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--spacing-md);
+            }
+            
+            .dream-home-title {
+                margin-bottom: var(--spacing-md);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-grid,
+            .instagram-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .instagram-item:first-child {
+                grid-row: auto;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .newsletter-input {
+                border-radius: 8px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 8px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .contact-info div {
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .copyright {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="/api/placeholder/80/30" alt="VM Modular Logo"> VM MODULAR
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#" class="active">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#"><i class="fas fa-home"></i></a> 
+                <span>/</span> 
+                <a href="#">Blog</a>
+            </div>
+            <div class="hero-content">
+                <h1>The Home Style Guide</h1>
+                <p>Designing and organization tips, ideas, and inspiration for your home.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="categories-header">
+                <h2>Categories</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            
+            <div class="categories-filter">
+                <button class="filter-btn active">Cabinet</button>
+                <button class="filter-btn">Insights</button>
+                <button class="filter-btn">Kitchens</button>
+                <button class="filter-btn">Layout</button>
+                <button class="filter-btn">Materials</button>
+                <button class="filter-btn">Modular Furniture</button>
+                <button class="filter-btn">Tips</button>
+                <button class="filter-btn">Wardrobe</button>
+            </div>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1609243010220-e2807d86bd24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Pooja Room Design">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Unique Pooja Room Design Inspirations For Your Home</h3>
+                        <div class="blog-tag">Tips</div>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Texture Paint Designs">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">How Can Texture Paint Designs Transform Your Living Room Ambiance?</h3>
+                        <div class="blog-tag">Tips</div>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="False Ceiling Designs">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Latest False Ceiling Designs For Bedrooms: Stylish & Functional Ideas</h3>
+                        <div class="blog-tag">Insights</div>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1546555648-fb7876c40c58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Wall Paint Design">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">How To Choose The Perfect Wall Paint Design For Your Living Room</h3>
+                        <div class="blog-tag">Tips</div>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1580904569556-ff4775357e54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="HDHMR vs Particle Board">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">HDHMR Vs Particle Board: Which One Offers Better Water Resistance And Longevity?</h3>
+                        <div class="blog-tag">Materials</div>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1632570607857-c0bfcf898d6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Plywood Vs. PVC">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Plywood Vs. PVC: Choosing The Best For Home Safety And Strength</h3>
+                        <div class="blog-tag">Materials</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="load-more">
+                <button class="load-more-btn">
+                    Load More
+                    <div class="btn-circle">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="instagram">
+        <div class="container">
+            <div class="instagram-header">
+                <h2 class="instagram-title">Check out our style board on Instagram</h2>
+            </div>
+            
+            <div class="instagram-grid">
+                <div class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1592247350574-c3c7f0ff5927?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Modern Kitchen Design">
+                </div>
+                <div class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Elegant Bathroom Design">
+                </div>
+                <div class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1617104678098-de229db51175?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Modern Wardrobe Design">
+                </div>
+                <div class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Contemporary Living Room">
+                </div>
+                <div class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Minimalist Bedroom Design">
+                </div>
+            </div>
+            
+            <div class="instagram-follow">
+                <a href="#" class="instagram-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Get the best designs and organization tips in your inbox</h2>
+            <p>Stay ahead of the latest home design and organization tips curated from across the world.</p>
+            
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="example@gmail.com" required>
+                <button type="submit" class="newsletter-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Dream Home Section -->
+    <section class="dream-home">
+        <div class="container dream-home-container">
+            <h2 class="dream-home-title">Wondering what your dream home looks like?</h2>
+            <a href="#" class="cta-button">
+                Let's find out
+                <div class="btn-circle">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="/api/placeholder/80/30" alt="VM Modular Logo"> VM MODULAR
+                </div>
+                <div class="footer-links-columns">
+                    <div>
+                        <h4>Sitemap</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Solutions</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Social</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <div class="contact-info">
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Plot No. 39 & 40 (2nd Floor), S.V.C.I.E, Balanagar, Hyderabad - 500 037, Telangana</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@vmmodular.com</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+91 99204 78888</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+91 97031 97231</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>040 4522 5029</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>040 2377 1763</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div>© Copyright 2024. All Rights Reserved by VM Modular</div>
+            <a href="#" class="privacy-policy">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add animation classes when elements come into view
+            const observerOptions = {
+                threshold: 0.2
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Apply to sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+            
+            // Category filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Here you would typically filter the blog posts
+                    // For now, this is just UI interaction
+                });
+            });
+            
+            // Load more functionality
+            const loadMoreBtn = document.querySelector('.load-more-btn');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    // Simulate loading more posts
+                    this.innerHTML = '<span>Loading...</span>';
+                    
+                    // After a delay, change back the button text
+                    setTimeout(() => {
+                        this.innerHTML = 'Load More <div class="btn-circle"><i class="fas fa-arrow-right"></i></div>';
+                    }, 2000);
+                    
+                    // Here you would typically load more posts via AJAX
+                });
+            }
+            
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = this.querySelector('.newsletter-input');
+                    
+                    // Simple validation
+                    if (emailInput.value.trim() === '' || !isValidEmail(emailInput.value)) {
+                        emailInput.style.borderColor = '#ff6b6b';
+                        return;
+                    }
+                    
+                    // Show success message (in a real implementation, you'd submit to a server)
+                    emailInput.value = '';
+                    emailInput.placeholder = 'Subscribed successfully!';
+                    emailInput.style.borderColor = '#4BB543';
+                    
+                    // Reset after a delay
+                    setTimeout(() => {
+                        emailInput.placeholder = 'example@gmail.com';
+                        emailInput.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                    }, 3000);
+                });
+            }
+            
+            function isValidEmail(email) {
+                const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+        });
+    </script>
+</body>
+</html>

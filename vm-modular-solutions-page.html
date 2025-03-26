@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VM Modular - Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0A3127;
+            --secondary-color: #f7f3eb;
+            --accent-color: #eac56b;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 40px;
+            --spacing-xl: 64px;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+        }
+        
+        .btn-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            padding: var(--spacing-sm) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero section */
+        .hero {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: var(--spacing-xl) 0;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb i {
+            margin-right: 5px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-sm);
+            max-width: 600px;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 500px;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .solution-card {
+            border: 1px solid #e5e5e5;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .solution-image {
+            height: 200px;
+            position: relative;
+        }
+
+        .solution-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .solution-badge {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .solution-content {
+            padding: var(--spacing-md);
+        }
+
+        .solution-title {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary-color);
+        }
+
+        .solution-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Journey Section */
+        .journey {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--secondary-color);
+        }
+
+        .journey-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .journey-steps {
+            padding-right: var(--spacing-xl);
+            position: relative;
+        }
+
+        .journey-steps:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 1px;
+            background-color: #ddd;
+        }
+
+        .journey-step {
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            color: #998f7a;
+        }
+
+        .journey-details {
+            padding-left: var(--spacing-xl);
+        }
+
+        .journey-detail {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .detail-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-color);
+        }
+
+        .detail-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .detail-features {
+            margin-top: var(--spacing-md);
+        }
+
+        .detail-feature {
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .detail-image {
+            margin-top: var(--spacing-md);
+            text-align: center;
+        }
+
+        .detail-image img {
+            max-width: 250px;
+            margin: 0 auto;
+            opacity: 0.7;
+        }
+
+        .journey-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            padding: var(--spacing-lg) 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: var(--spacing-lg) 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+        
+        .cta-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cta-text {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .cta-button-dark {
+            background-color: #062018;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .cta-button-dark .btn-circle {
+            background-color: var(--accent-color);
+            margin-left: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .footer-links-columns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+        }
+        
+        .footer-column h4 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .contact-info {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .contact-info div {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: var(--spacing-md);
+        }
+        
+        .social-links a {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .privacy-policy {
+            text-decoration: none;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .solutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .journey-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .journey-steps:after {
+                display: none;
+            }
+            
+            .journey-steps,
+            .journey-details {
+                padding: 0;
+            }
+            
+            .journey-detail {
+                margin-top: var(--spacing-lg);
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .contact-info div {
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .copyright {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                text-align: center;
+            }
+            
+            .footer-links-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="/api/placeholder/80/30" alt="VM Modular Logo"> VM MODULAR
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <i class="fas fa-home"></i> / Solutions
+            </div>
+            <h1>We Offer Unique Customised Solutions</h1>
+            <p>The perfect mix of aesthetics and functional benefits tailored to your environment.</p>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions">
+        <div class="container">
+            <h2 class="section-title">Our Solutions</h2>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1574180045827-681f8a1a9622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kitchen Interior">
+                        <div class="solution-badge">
+                            <i class="fas fa-check-circle"></i> View Details
+                        </div>
+                    </div>
+                    <div class="solution-content">
+                        <h3 class="solution-title">Kitchens</h3>
+                        <p class="solution-text">Experience the art of perfection with our designer kitchen solutions: Customized fittings, maximized storage options, and unique features like built-in illumination with ergonomic counters.</p>
+                    </div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Wardrobe Interior">
+                        <div class="solution-badge">
+                            <i class="fas fa-check-circle"></i> View Details
+                        </div>
+                    </div>
+                    <div class="solution-content">
+                        <h3 class="solution-title">Wardrobes</h3>
+                        <p class="solution-text">Crafted for elegance and efficiency: our versatile, organized (fits a postmodern palette) wardrobes create the impression of more space with a minimum footprint.</p>
+                    </div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Living Space Interior">
+                        <div class="solution-badge">
+                            <i class="fas fa-check-circle"></i> View Details
+                        </div>
+                    </div>
+                    <div class="solution-content">
+                        <h3 class="solution-title">Entertainment</h3>
+                        <p class="solution-text">Discover industry's sleek design needs inccoporating function for a comfortable TV viewing experience and bookshelves entertainment center with a unique sensibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey">
+        <div class="container">
+            <h2 class="section-title">Journey to Your Dream Home</h2>
+            
+            <div class="journey-container">
+                <div class="journey-steps">
+                    <div class="journey-step">
+                        <div class="step-number">1.</div>
+                        <h3 class="step-title">Consult & Curate</h3>
+                    </div>
+                    
+                    <div class="journey-step">
+                        <div class="step-number">2.</div>
+                        <h3 class="step-title">Clarity & Quote</h3>
+                    </div>
+                    
+                    <div class="journey-step">
+                        <div class="step-number">3.</div>
+                        <h3 class="step-title">Blueprint & Personalize</h3>
+                    </div>
+                    
+                    <div class="journey-step">
+                        <div class="step-number">4.</div>
+                        <h3 class="step-title">Manufacturing & Mastery</h3>
+                    </div>
+                    
+                    <div class="journey-step">
+                        <div class="step-number">5.</div>
+                        <h3 class="step-title">Install & Inaugurate</h3>
+                    </div>
+                </div>
+                
+                <div class="journey-details">
+                    <div class="journey-detail">
+                        <h4 class="detail-title">Your gateway to perfection begins here.</h4>
+                        <p class="detail-text">Our design experts spend time understanding your vision, style preferences, and specific needs to craft personalized solutions that transform your space.</p>
+                        <p class="detail-text">This collaborative consultation ensures we capture your unique requirements and aesthetic desires.</p>
+                        <div class="detail-image">
+                            <img src="https://images.unsplash.com/photo-1681140826173-c5087b6c1842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&q=80" alt="Consultation Illustration">
+                        </div>
+                    </div>
+                    
+                    <div class="journey-detail">
+                        <h4 class="detail-title">Transparent pricing for peace of mind.</h4>
+                        <p class="detail-text">Based on your requirements, we provide transparent quotes with no hidden costs. Our pricing includes all aspects from design to installation, ensuring clarity and confidence.</p>
+                        <p class="detail-text">We believe in complete transparency throughout the entire process.</p>
+                        <div class="detail-image">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&q=80" alt="Quote Illustration">
+                        </div>
+                    </div>
+                    
+                    <div class="journey-detail">
+                        <h4 class="detail-title">Crafting partnerships. Taking key design decisions.</h4>
+                        <p class="detail-text">Our dedicated designers work closely with you to finalize every detail, from materials and finishes to hardware and functionality features.</p>
+                        <p class="detail-text">This collaborative approach ensures your unique vision is perfectly translated into detailed blueprints.</p>
+                        <div class="detail-features">
+                            <div class="detail-feature">• Materials</div>
+                            <div class="detail-feature">• Colors</div>
+                            <div class="detail-feature">• Dimensions & Features</div>
+                        </div>
+                        <div class="detail-image">
+                            <img src="https://images.unsplash.com/photo-1574359411659-15573a27d468?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&q=80" alt="Blueprint Illustration">
+                        </div>
+                    </div>
+                    
+                    <div class="journey-detail">
+                        <h4 class="detail-title">The specialized designs come to life.</h4>
+                        <p class="detail-text">Our expert craftsmen meticulously create your solutions in our state-of-the-art manufacturing facility, adhering to the highest quality standards.</p>
+                        <p class="detail-text">Every piece undergoes rigorous quality checks before it leaves our facility.</p>
+                        <div class="detail-features">
+                            <div class="detail-feature">• Quality checks</div>
+                            <div class="detail-feature">• Material precision</div>
+                            <div class="detail-feature">• Hardware test</div>
+                        </div>
+                        <div class="detail-image">
+                            <img src="https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&q=80" alt="Manufacturing Illustration">
+                        </div>
+                    </div>
+                    
+                    <div class="journey-detail">
+                        <h4 class="detail-title">The final step - The Handover Ritual.</h4>
+                        <p class="detail-text">Our professional installation team carefully places and fits your custom solutions in your space, ensuring perfect alignment and functionality.</p>
+                        <p class="detail-text">We guide you through proper care and maintenance, and welcome you to your newly transformed space!</p>
+                        <div class="detail-features">
+                            <div class="detail-feature">• Pre-Delivery Inspection</div>
+                            <div class="detail-feature">• Clean, Professional Installation</div>
+                        </div>
+                        <div class="detail-image">
+                            <img src="https://images.unsplash.com/photo-1578767221992-e251a2135e21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&q=80" alt="Installation Illustration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="journey-note">
+                After the installation is complete and you're official handover has been done, your home is ready for memories to be created in the spaces we've crafted together.
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-container">
+            <h2 class="cta-text">Wondering what your dream home looks like?</h2>
+            <a href="#" class="cta-button-dark">
+                Let's find out
+                <div class="btn-circle">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="/api/placeholder/80/30" alt="VM Modular Logo"> VM MODULAR
+                </div>
+                <div class="footer-links-columns">
+                    <div>
+                        <h4>Sitemap</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Solutions</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Social</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">YouTube</a></li>
+                            <li><a href="#">Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <div class="contact-info">
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Plot No. 1-8 & 73-83 Phase-II, KIADB Industrial Area, Doddaballapur - 561 203, Bangalore Urban District.</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@vmmodular.com</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+91 98765 43210</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+91 98765 43210</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+91 98765 43210</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div>© Copyright 2024. All Rights Reserved by VM Modular</div>
+            <a href="#" class="privacy-policy">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add animation classes when elements come into view
+            const observerOptions = {
+                threshold: 0.2
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Apply to sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

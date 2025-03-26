@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VM Modular - Projects Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0A3127;
+            --secondary-color: #f7f3eb;
+            --accent-color: #eac56b;
+            --text-dark: #00312D;
+            --text-light: #FFFFFF;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 40px;
+            --spacing-xl: 64px;
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height:.6;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+        }
+        
+        .btn-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Header */
+        header {
+            padding: var(--spacing-md) 0;
+            background-color: #fff;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+        }
+        
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb i {
+            margin-right: 8px;
+        }
+        
+        .breadcrumb a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 8px;
+            opacity: 0.6;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-lg);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding-bottom: var(--spacing-xl);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .project-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-title {
+            padding: var(--spacing-md);
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+        }
+
+        .load-more {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .load-more-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            padding: 12px 24px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn span {
+            font-weight: 500;
+        }
+
+        .load-more-btn .btn-circle {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .load-more-btn:hover {
+            background-color: #efe9db;
+        }
+
+        /* Featured Project Section */
+        .featured-project {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .featured-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .featured-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+
+        .featured-content p {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .google-reviews-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            transition: all 0.3s ease;
+        }
+
+        .google-reviews-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .google-reviews-btn .btn-circle {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .featured-image {
+            position: relative;
+        }
+
+        .featured-image img {
+            border-radius: var(--border-radius);
+            height: 350px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .quality-badge {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .quality-badge span {
+            display: block;
+        }
+
+        .quality-badge .diamond {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cta-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cta-text {
+            font-size: 1.7rem;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+        
+        .cta-button-dark {
+            background-color: #062018;
+            display: flex;
+            align-items: center;
+            padding: 12px 24px;
+            border-radius: 30px;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button-dark:hover {
+            background-color: #0d3c2c;
+        }
+        
+        .cta-button-dark .btn-circle {
+            background-color: var(--accent-color);
+            margin-left: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .footer-links-columns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+        }
+        
+        .footer-column h4 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .contact-info {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .contact-info div {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .privacy-policy {
+            text-decoration: none;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .featured-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .featured-content {
+                text-align: center;
+            }
+            
+            .quality-badge {
+                bottom: 10px;
+                left: 10px;
+                width: 80px;
+                height: 80px;
+                font-size: 0.7rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-xl);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                text-align: center;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .contact-info div {
+                justify-content: center;
+            }
+            
+            .copyright {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="/api/placeholder/80/30" alt="VM Modular Logo"> VM MODULAR
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#" class="active">Projects</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#"><i class="fas fa-home"></i></a> 
+                <span>/</span> 
+                Project
+            </div>
+            <h1>Our Portfolio of Successful Projects</h1>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="container">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="ARK Towers Project">
+                    </div>
+                    <div class="project-title">ARK Towers</div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="My Home Bhooja Project">
+                    </div>
+                    <div class="project-title">My Home Bhooja</div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Banjara Hills Project">
+                    </div>
+                    <div class="project-title">Banjara Hills</div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Nanakramguda Project">
+                    </div>
+                    <div class="project-title">Nanakramguda</div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1556912172-45518114e11e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Khandelwals (III) Project">
+                    </div>
+                    <div class="project-title">Khandelwals (III)</div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Mantri Euphoria Project">
+                    </div>
+                    <div class="project-title">Mantri Euphoria</div>
+                </div>
+            </div>
+            
+            <div class="load-more">
+                <a href="#" class="load-more-btn">
+                    <span>Load More</span>
+                    <div class="btn-circle">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Project Section -->
+    <section class="featured-project">
+        <div class="container featured-container">
+            <div class="featured-content">
+                <h2>These are just a few of the many projects we have executed over 15 years.</h2>
+                <a href="#" class="google-reviews-btn">
+                    <span>Google Reviews</span>
+                    <div class="btn-circle">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="featured-image">
+                <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Featured Kitchen Project">
+                <div class="quality-badge">
+                    <span>Excellence</span>
+                    <span class="diamond">◆</span>
+                    <span>Luxury</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-container">
+            <h2 class="cta-text">Wondering what your dream home looks like?</h2>
+            <a href="#" class="cta-button-dark">
+                Let's find out
+                <div class="btn-circle">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="/api/placeholder/80/30" alt="VM Modular Logo"> VM MODULAR
+                </div>
+                <div class="footer-links-columns">
+                    <div>
+                        <h4>Sitemap</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Solutions</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Socials</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Linkedin</a></li>
+                            <li><a href="#">Youtube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <div class="contact-info">
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Plot No. 39 & 40 (2nd Floor), EXCIL, Balanagar, Hyderabad - 500 037, Telangana</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@vmmodular.com</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+91 99204 76888</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+91 97031 97231</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>040 4522 5029</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>040 2377 1763</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div>© Copyright 2024, All Rights Reserved by VM Modular</div>
+            <a href="#" class="privacy-policy">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add animation classes when elements come into view
+            const observerOptions = {
+                threshold: 0.2
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Apply to sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

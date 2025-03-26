@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VM Modular - Contact Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0A3127;
+            --secondary-color: #f7f3eb;
+            --accent-color: #eac56b;
+            --text-dark: #00312D;
+            --text-light: #FFFFFF;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 40px;
+            --spacing-xl: 64px;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--primary-color);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Header */
+        header {
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb i {
+            margin-right: 8px;
+        }
+        
+        .breadcrumb a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 8px;
+            opacity: 0.6;
+        }
+
+        .contact-section h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-row {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-label {
+            display: block;
+            text-align: left;
+            margin-bottom: var(--spacing-xs);
+            font-size: 0.9rem;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-section-title {
+            text-align: left;
+            margin-bottom: var(--spacing-sm);
+            font-size: 1rem;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .radio-option {
+            position: relative;
+        }
+
+        .radio-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .radio-option label {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .radio-option label:before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option input[type="radio"]:checked + label {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .radio-option input[type="radio"]:checked + label:before {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            box-shadow: inset 0 0 0 3px var(--primary-color);
+        }
+
+        .submit-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 12px 35px;
+            border-radius: 8px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: var(--spacing-md);
+        }
+
+        .submit-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .recaptcha {
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Office Location Section */
+        .office-location {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+        }
+
+        .office-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .office-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+
+        .office-address {
+            margin-top: var(--spacing-lg);
+        }
+
+        .address-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .address-item i {
+            margin-right: var(--spacing-sm);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            min-width: 24px;
+            margin-top: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--primary-color);
+        }
+
+        .social-link i {
+            font-size: 1.1rem;
+        }
+
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2.2rem;
+            margin-bottom: var(--spacing-sm);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter p {
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px 0 0 8px;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px 25px;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #d9b75f;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cta-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cta-text {
+            font-size: 1.7rem;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+        
+        .cta-button-dark {
+            background-color: #062018;
+            display: flex;
+            align-items: center;
+            padding: 12px 24px;
+            border-radius: 30px;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .cta-button-dark .btn-circle {
+            background-color: var(--accent-color);
+            margin-left: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .footer-links-columns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+        }
+        
+        .footer-column h4 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .contact-info {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .contact-info div {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .privacy-policy {
+            text-decoration: none;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .office-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .office-content {
+                text-align: center;
+            }
+            
+            .address-item {
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-xl);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .radio-group {
+                justify-content: center;
+            }
+            
+            .cta-container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                text-align: center;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .contact-info div {
+                justify-content: center;
+            }
+            
+            .copyright {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .newsletter-input {
+                border-radius: 8px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="/api/placeholder/80/30" alt="VM Modular Logo"> VM MODULAR
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#"><i class="fas fa-home"></i></a> 
+                <span>/</span> 
+                Contact
+            </div>
+            <h1>Get in Touch</h1>
+            
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="fullName" placeholder="Full Name*" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Email Address*" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" class="form-control" id="phone" placeholder="Mobile Number*" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="city" placeholder="City*" required>
+                    </div>
+                    
+                    <div class="form-section-title">Tell us about your home</div>
+                    
+                    <div class="form-group">
+                        <div class="form-label">Size:</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="size2bhk" name="size" value="2 BHK">
+                                <label for="size2bhk">2 BHK</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="size3bhk" name="size" value="3 BHK">
+                                <label for="size3bhk">3 BHK</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="size4bhk" name="size" value="4 BHK or more">
+                                <label for="size4bhk">4 BHK or more</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-label">Type:</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="typeIndependent" name="type" value="Independent / Villa">
+                                <label for="typeIndependent">Independent / Villa</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="typeApartment" name="type" value="Apartment">
+                                <label for="typeApartment">Apartment</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-label">Tentative Budget:</div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="budget1" name="budget" value="₹6 to ₹10 Lakhs">
+                                <label for="budget1">₹6 to ₹10 Lakhs</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="budget2" name="budget" value="₹11 - ₹14 Lakhs">
+                                <label for="budget2">₹11 - ₹14 Lakhs</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="budget3" name="budget" value="₹15 - ₹20 Lakhs">
+                                <label for="budget3">₹15 - ₹20 Lakhs</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="budget4" name="budget" value="₹20+ Lakhs">
+                                <label for="budget4">₹20+ Lakhs</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea class="form-control" id="message" rows="5" placeholder="Message*" required></textarea>
+                    </div>
+                    
+                    <div class="recaptcha">
+                        <img src="/api/placeholder/300/80" alt="reCAPTCHA">
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Location Section -->
+    <section class="office-location">
+        <div class="container office-container">
+            <div class="office-content">
+                <h2>Visit our facility to choose the A-Z of your Design Idea and Execution</h2>
+                
+                <div class="office-address">
+                    <div class="address-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            Plot No. 39 & 40 (2nd Floor),<br>
+                            S.V.C.I.E, Balanagar,<br>
+                            Hyderabad - 500 037<br>
+                            Telangana
+                        </div>
+                    </div>
+                    
+                    <div class="address-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>info@vmmodular.com</div>
+                    </div>
+                    
+                    <div class="address-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            +91 99204 78888<br>
+                            040 4522 5029<br>
+                            040 2377 1763<br>
+                            +91 97031 97231
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69c07a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Google Maps location of VM Modular office">
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Get the best designs and organization tips in your inbox</h2>
+            <p>Stay ahead of the latest home design and organization tips curated from across the world.</p>
+            
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="example@gmail.com" required>
+                <button type="submit" class="newsletter-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-container">
+            <h2 class="cta-text">Wondering what your dream home looks like?</h2>
+            <a href="#" class="cta-button-dark">
+                Let's find out
+                <div class="btn-circle">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="/api/placeholder/80/30" alt="VM Modular Logo"> VM MODULAR
+                </div>
+                <div class="footer-links-columns">
+                    <div>
+                        <h4>Sitemap</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Solutions</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Socials</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <div class="contact-info">
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Plot No. 39 & 40 (2nd Floor), S.V.C.I.E., Balanagar, Hyderabad - 500 037, Telangana</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@vmmodular.com</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+91 99204 78888</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+91 97031 97231</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>040 4522 5029</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>040 2377 1763</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div>© Copyright 2024, All Rights Reserved by VM Modular</div>
+            <a href="#" class="privacy-policy">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add animation classes when elements come into view
+            const observerOptions = {
+                threshold: 0.2
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Apply to sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Form validation
+            const contactForm = document.querySelector('.contact-form form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Simple validation
+                    const fullName = document.getElementById('fullName');
+                    const email = document.getElementById('email');
+                    const phone = document.getElementById('phone');
+                    const city = document.getElementById('city');
+                    const message = document.getElementById('message');
+                    
+                    let isValid = true;
+                    
+                    if (!fullName.value.trim()) {
+                        highlightError(fullName);
+                        isValid = false;
+                    } else {
+                        removeError(fullName);
+                    }
+                    
+                    if (!email.value.trim() || !isValidEmail(email.value)) {
+                        highlightError(email);
+                        isValid = false;
+                    } else {
+                        removeError(email);
+                    }
+                    
+                    if (!phone.value.trim()) {
+                        highlightError(phone);
+                        isValid = false;
+                    } else {
+                        removeError(phone);
+                    }
+                    
+                    if (!city.value.trim()) {
+                        highlightError(city);
+                        isValid = false;
+                    } else {
+                        removeError(city);
+                    }
+                    
+                    if (!message.value.trim()) {
+                        highlightError(message);
+                        isValid = false;
+                    } else {
+                        removeError(message);
+                    }
+                    
+                    if (isValid) {
+                        // Normally would submit the form here
+                        // For demo, just show a success message
+                        alert('Form submitted successfully! We will get back to you soon.');
+                        contactForm.reset();
+                    }
+                });
+            }
+            
+            function highlightError(element) {
+                element.style.borderColor = '#ff6b6b';
+                element.style.backgroundColor = 'rgba(255, 107, 107, 0.05)';
+            }
+            
+            function removeError(element) {
+                element.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                element.style.backgroundColor = 'transparent';
+            }
+            
+            function isValidEmail(email) {
+                const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            // Newsletter form validation
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = newsletterForm.querySelector('.newsletter-input');
+                    
+                    if (!emailInput.value.trim() || !isValidEmail(emailInput.value)) {
+                        emailInput.style.borderColor = '#ff6b6b';
+                    } else {
+                        emailInput.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                        // Normally would submit the form here
+                        alert('Thank you for subscribing to our newsletter!');
+                        newsletterForm.reset();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
